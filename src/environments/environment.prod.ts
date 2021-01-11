@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://quail.webiantechnologies.com/api/',
+  baseUrl: 'https://api.spacexdata.com/v3/',
 };
