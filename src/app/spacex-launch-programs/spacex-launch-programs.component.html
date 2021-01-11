@@ -1,0 +1,108 @@
+<div fxLayout="column" fxLayoutGap="5px">
+    <div fxLayout="row" class="header-title">{{title}}</div>
+    <div fxLayout="row wrap" fxLayout.sm="column" fxLayout.xs="column">
+        <div fxFlex.lg="20" fxFlex.xl="20" fxFlex.md="33" fxFlex.sm="100%" fxFlex.xs="100%" class="full-width">
+            <div fxLayout="row">
+                <div fxFlex.lg="100" fxFlex.xl="100" fxFlex.md="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+                    <mat-card class="filter-card">
+                        <mat-card-header class="filter-title">Filters</mat-card-header>
+                        <mat-card-content>
+                            <div fxLayout="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap">
+                                <div fxFlex="100" class="sub-title" fxLayoutAlign="center">Launch year</div>
+                                <div fxFlex="100" class="divider"></div>
+                                <div fxFlex="50" *ngFor="let year of yearList" fxLayoutAlign="center">
+                                    <button mat-button mat-raised-button
+                                            [ngClass]="year.selected ? 'checked-button' : ''" type="button"
+                                            (click)="yearFilter(year)">
+                                        {{year.year}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div fxLayout="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
+                                 fxLayoutAlign="center">
+                                <div fxFlex="100" class="sub-title" fxLayoutAlign="center">Successful Launch</div>
+                                <div fxFlex="100" class="divider"></div>
+                                <div fxFlex="50" *ngFor="let status of launchStatus" fxLayoutAlign="center">
+                                    <button mat-button mat-raised-button
+                                            [ngClass]="status.selected ? 'checked-button' : ''" type="button"
+                                            (click)="launchFilter(status)">
+                                        {{status.status}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div fxLayout="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
+                                 fxLayoutAlign="center">
+                                <div fxFlex="100" class="sub-title" fxLayoutAlign="center">Successful Landing</div>
+                                <div fxFlex="100" class="divider"></div>
+                                <div fxFlex="50" *ngFor="let status of landingStatus" fxLayoutAlign="center">
+                                    <button mat-button mat-raised-button
+                                            [ngClass]="status.selected ? 'checked-button' : ''" type="button"
+                                            (click)="landingFilter(status)">
+                                        {{status.status}}
+                                    </button>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div fxFlex.lg="80" fxFlex.xl="80" fxFlex.md="66%" fxFlex.sm="100%" fxFlex.xs="100%">
+            <div fxLayout="row wrap" fxLayoutAlign="start start">
+                <div fxFlex.lg="25" fxFlex.xl="25" fxFlex.md="50%" fxFlex.sm="100%" fxFlex.xs="100%"
+                     *ngFor="let item of spaceXProgramList">
+                    <mat-card class="program-card">
+                        <mat-card-header>
+                        </mat-card-header>
+                        <img mat-card-image class="image-box" [src]="item.links.mission_patch_small" alt="''">
+                        <mat-card-content>
+                            <div fxLayout="row">
+                                <div fxFlex.gt-md="100" class="mat-body-strong items-color-strong" fxFlex.gt-sm="100"
+                                     fxFlex.gt-xs="100">
+                                    {{item.mission_name}} # {{item.flight_number}}
+                                </div>
+                            </div>
+                            <div fxLayout="row wrap">
+                                <div fxFlex.gt-md="70" fxFlex.gt-sm="70" fxFlex.gt-xs="70">
+                                    <div class="mat-body-strong">Mission Ids:</div>
+                                </div>
+                                <div fxFlex.gt-md="80" fxLayoutAlign="center" class="mat-body-strong items-color"
+                                     fxFlex.gt-sm="80" fxFlex.gt-xs="80" *ngFor="let id of item.mission_id">
+                                    {{'• '}}{{id}}
+                                </div>
+                            </div>
+                            <div fxLayout="row">
+                                <div fxFlex.gt-md="70" fxFlex.gt-sm="70" fxFlex.gt-xs="70">
+                                    <div class="mat-body-strong">Launch year:</div>
+                                </div>
+                                <div fxFlex.gt-md="30" class="mat-body-strong items-color" fxFlex.gt-sm="30"
+                                     fxFlex.gt-xs="30">
+                                    {{item.launch_year}}
+                                </div>
+                            </div>
+                            <div fxLayout="row">
+                                <div fxFlex.gt-md="70" fxFlex.gt-sm="70" fxFlex.gt-xs="70">
+                                    <div class="mat-body-strong">Successful Launch:</div>
+                                </div>
+                                <div fxFlex.gt-md="30" class="mat-body-strong items-color" fxFlex.gt-sm="30"
+                                     fxFlex.gt-xs="30">
+                                    {{item.launch_success}}
+                                </div>
+                            </div>
+                            <div fxLayout="row">
+                                <div fxFlex.gt-md="70" fxFlex.gt-sm="70" fxFlex.gt-xs="70">
+                                    <div class="mat-body-strong">Successful Landing:</div>
+                                </div>
+                                <div fxFlex.gt-md="30" class="mat-body-strong items-color" fxFlex.gt-sm="30"
+                                     fxFlex.gt-xs="30">
+                                    -------
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center" class="name-class">Developed by: <span class="items-color-strong">{{developerName}}</span></div>
+        </div>
+    </div>
+</div>
