@@ -2,6 +2,22 @@ import {Component, OnInit} from '@angular/core';
 import {SpacexLaunchProgramService} from './spacex-launch-program.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+export class SpeceXDto {
+    flight_number?: number;
+    mission_name?: string;
+    mission_id?: Array<string> = [];
+    launch_year?: string;
+    launch_success?: boolean;
+    rocket?: {
+      first_stage?: {
+        cores?: [
+          land_success?: any
+        ]
+      }
+    }
+  }
+  
+
 @Component({
     selector: 'app-spacex-launch-programs',
     templateUrl: './spacex-launch-programs.component.html',
@@ -9,7 +25,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class SpacexLaunchProgramsComponent implements OnInit {
     title = 'SpaceX Launch Programs';
-    spaceXProgramList: Array<any> = [];
+    spaceXProgramList: SpeceXDto[] = [];
     yearList: Array<any> = [];
     launchStatus: Array<any> = [];
     landingStatus: Array<any> = [];
@@ -58,6 +74,11 @@ export class SpacexLaunchProgramsComponent implements OnInit {
     allLaunchPrograms(): void {
         this.spacexLaunchProgramService.getAllPrograms().subscribe(response => {
             this.spaceXProgramList = response;
+            if(this.spaceXProgramList.length == 0) {
+                this.snackBar.open('Data not found!', '', {
+                    duration: 2000,
+                });
+            }
         }, (err) => {
             this.snackBar.open(err.message, '', {
                 duration: 2000,
@@ -115,6 +136,11 @@ export class SpacexLaunchProgramsComponent implements OnInit {
     getFilter(): void {
         this.spacexLaunchProgramService.getCommonFilter(this.yearValue, this.launchFlag, this.landingFlag).subscribe(response => {
             this.spaceXProgramList = response;
+            if(this.spaceXProgramList.length == 0) {
+                this.snackBar.open('Data not found!', '', {
+                    duration: 2000,
+                });
+            }
         }, (err) => {
             this.snackBar.open(err.message, '', {
                 duration: 2000,

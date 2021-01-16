@@ -1,8 +1,8 @@
-<div fxLayout="column" fxLayoutGap="5px">
+<div fxLayout="column" fxLayoutGap="5px" class="desktop-view">
     <div fxLayout="row" class="header-title">{{title}}</div>
-    <div fxLayout="row wrap" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column">
-        <div fxFlex.lg="20" fxFlex.xl="20" fxFlex.md="25" fxFlex.sm="33" fxFlex.xs="100" class="full-width">
-            <div fxLayout="row">
+    <div fxLayout="row wrap" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column" >
+        <div fxFlex.lg="20" fxFlex.xl="20" fxFlex.md="20" fxFlex.sm="33" fxFlex.xs="100" class="full-width">
+            <div fxLayout="row" >
                 <div fxFlex.lg="100" fxFlex.xl="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100">
                     <mat-card class="filter-card">
                         <mat-card-header class="filter-title">Filters</mat-card-header>
@@ -47,10 +47,10 @@
                 </div>
             </div>
         </div>
-        <div fxFlex.lg="80" fxFlex.xl="80" fxFlex.md="75" fxFlex.sm="66" fxFlex.xs="100">
-            <div fxLayout="row wrap" fxLayoutAlign="start start">
-                <div fxFlex.lg="25" fxFlex.xl="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100"
-                     *ngFor="let item of spaceXProgramList">
+        <div fxFlex.lg="80" fxFlex.xl="80" fxFlex.md="80" fxFlex.sm="66" fxFlex.xs="100">
+            <div fxLayout="row wrap">
+                <div fxFlex.lg="25" fxFlex.xl="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100"
+                     *ngFor="let item of spaceXProgramList" class="max-cal-weight">
                     <mat-card class="program-card">
                         <mat-card-header>
                         </mat-card-header>

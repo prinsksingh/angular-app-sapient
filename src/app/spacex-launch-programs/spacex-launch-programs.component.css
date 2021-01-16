@@ -31,7 +31,7 @@
 .program-card {
      margin: 10px !important;
      padding: 18px !important;
-    min-height: 390px !important;
+     min-height: 390px !important;
  }
 .divider {
     border-top-style: solid; border-top-color: grey; border-width: 2px; margin: 4px 24px
@@ -50,8 +50,17 @@
 .full-width {
     width: 100% !important;
 }
-.name-class{
+.name-class {
     font-size: 20px;
     font-weight: 700;
     margin: 20px 0px;
+}
+@media(min-width: 1441px) {
+    .desktop-view {
+        align-items: center;
+        justify-content: center;
+        max-width: 1441px; 
+        margin: 0 auto !important; 
+        float: none !important; 
+    }
 }
